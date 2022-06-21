@@ -1,0 +1,44 @@
+.btns-container {
+    display: flex;
+
+}
+
+#display-container {
+ display: flex;
+  
+}
+
+
+#display {
+    border: 6px ridge grey;
+    padding: 12px 75px; 
+}
+
+.col-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 0px;
+}
+
+
+
+
+.col-2, .col-3 {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-left: 8px;
+    ;
+}
+
+
+
+.col_2-btns, .col_3-btns{
+    flex-grow: 0;
+    padding: 1px 11px;
+    gap: 1px;
+}
+
+
+
