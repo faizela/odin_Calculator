@@ -9,10 +9,11 @@ const minus = document.getElementById("minus")
 const multiply_btn = document.getElementById("multiply")
 const divide_btn = document.getElementById("divide")
 const equal_btn = document.getElementById("equal")
-let operationsArray = [plus, minus, multiply_btn, divide_btn, equal_btn]
+let operationsArray = [plus, minus, multiply_btn, divide_btn]
 
 
 let currentText = ''
+//let curtarr = currentText.split('+')
 
 const display_val = function (btn) {
   display.innerText += btn.innerText
@@ -37,18 +38,29 @@ function divide (a, b){
 }
 
 function operate (operator, a, b) {
-
-  operations = {
-    "+" : (a,b) => a + b, 
-    "-" : (a,b) => a - b,
-    "*" : (a,b) => a * b, 
-    "/" : (a,b) => a / b,
+ if (operator == '+'){
+  const add = (a,b) => a + b
+  return add(a,b)
+ }
+ else if (operator == '-'){
+  const minus = (a,b) => a - b
+  return minus(a,b)
+ }
+ else if (operator == '*'){
+  const multiply = (a,b) => a * b
+  return multiply(a,b)
+ }
+ else if (operator == '/'){
+  const divide = (a,b) => a / b
+  return divide(a,b)
+ }
 
 }
 
-return operations[operator] (a,b)
 
-}
+  
+
+
 
 function col_1_add_EV() {
   for (let btn of col_1_btns){
@@ -74,52 +86,55 @@ function col_4_add_EV() {
   }
 }
 
+function store_firstnum(){
+  let first_num = parseInt(currentText[0])
+  return first_num
+}
+
+function operator_Value(e){
+ let operator = e.target.innerText
+ return operator
+}
+
+
+function operator_Add_Ev(){
+  for (let btn of operationsArray){
+     btn.addEventListener('click', (e) => {
+       let operator = operator_Value(e) 
+       console.log(operator)
+     })
+     btn.addEventListener('click', () => console.log(store_firstnum()))
+}
+}
 
 
 
 
+
+
+
+
+
+
+
+
+function equal_operate () {
+  equal_btn.addEventListener('click', () => operate(chosenoperator, first_num, sec_num ))
+}
+
+
+
+//console.log(fakefunc(operator_Value_add_Ev(), '2'))
 
 col_1_add_EV()
 col_2_add_EV()
 col_3_add_EV()
 col_4_add_EV()
-
-
-
-function checkOperators() {
-  let numstore = [];
-  for (let btn of operationsArray){ 
-    btn.addEventListener('click', () => {
-      let first_num
-      let chosenoperator
-      first_num = currentText[0]
-      first_num_int = parseInt(first_num)
-      chosenoperator = btn.textContent
-      numstore.push(first_num_int)
-      console.log(first_num)
-      console.log(numstore)
-     
-
-      
-     if (btn.id == 'equal'){
-       operate(chosenoperator, first_num_int,  )
-       
-     }
-     
-
-      
-    })}
-  }
-
-  
-  
- checkOperators()
-
+operator_Add_Ev()
 
 
 console.log(add(2,3))
 console.log(substract(3,2))
 console.log(multiply(3,2))
 console.log(divide(8,2))
-console.log(operate('-', 2, 8))
-
+console.log(operate('-',8, 2))
