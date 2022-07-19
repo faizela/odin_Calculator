@@ -39,19 +39,15 @@ function divide (a, b){
 
 function operate (operator, a, b) {
  if (operator == '+'){
-  const add = (a,b) => a + b
   return add(a,b)
  }
  else if (operator == '-'){
-  const minus = (a,b) => a - b
-  return minus(a,b)
+ return  substract(a,b)
  }
  else if (operator == '*'){
-  const multiply = (a,b) => a * b
-  return multiply(a,b)
+   return multiply(a,b)
  }
  else if (operator == '/'){
-  const divide = (a,b) => a / b
   return divide(a,b)
  }
 
@@ -86,28 +82,6 @@ function col_4_add_EV() {
   }
 }
 
-function store_firstnum(){
-  let first_num = parseInt(currentText[0])
-  return first_num
-}
-
-function operator_Value(e){
- let operator = e.target.innerText
- return operator
-}
-
-
-function operator_Add_Ev(){
-  for (let btn of operationsArray){
-     btn.addEventListener('click', (e) => {
-       let operator = operator_Value(e) 
-       console.log(operator)
-     })
-     btn.addEventListener('click', () => console.log(store_firstnum()))
-}
-}
-
-
 
 
 
@@ -130,7 +104,7 @@ col_1_add_EV()
 col_2_add_EV()
 col_3_add_EV()
 col_4_add_EV()
-operator_Add_Ev()
+//operator_Add_Ev()
 
 
 console.log(add(2,3))
